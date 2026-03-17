@@ -32,6 +32,9 @@ jobs:
           echo "commit=$PREV_COMMIT" >> $GITHUB_OUTPUT
           echo "message=$PREV_MESSAGE" >> $GITHUB_OUTPUT
 
+      - name: Disable git hooks
+        run: git config --local core.hooksPath /dev/null
+
       - name: Restore previous manifest
         run: git checkout ${{ steps.previous.outputs.commit }} -- assets/release-manifest.json
 
@@ -41,7 +44,6 @@ jobs:
           commit-message: 'Rollback release manifest to previous version'
           branch: automated/rollback-release-manifest
           delete-branch: true
-          git-hooks: false
           title: '🚨 Rollback release manifest to previous version'
           body: |
             **Emergency rollback** of `assets/release-manifest.json` to the previous version.
