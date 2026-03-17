@@ -41,6 +41,7 @@ jobs:
           commit-message: 'Rollback release manifest to previous version'
           branch: automated/rollback-release-manifest
           delete-branch: true
+          git-hooks: false
           title: '🚨 Rollback release manifest to previous version'
           body: |
             **Emergency rollback** of `assets/release-manifest.json` to the previous version.
