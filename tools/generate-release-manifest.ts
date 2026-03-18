@@ -56,7 +56,7 @@ function getEnvFromTag(tag: string): string {
 
 function fetchReleases(): GHRelease[] {
     const output = execSync(
-        'gh release list --repo aws-cloudformation/cloudformation-languageserver --limit 100 --json tagName',
+        'gh release list --repo deepfuriya/cloudformation-languageserver --limit 100 --json tagName',
         { encoding: 'utf8' },
     );
     const releases = JSON.parse(output);
@@ -64,7 +64,7 @@ function fetchReleases(): GHRelease[] {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return releases.map((r: any): GHRelease => {
         const assetsOutput = execSync(
-            `gh api repos/aws-cloudformation/cloudformation-languageserver/releases/tags/${r.tagName}`,
+            `gh api repos/deepfuriya/cloudformation-languageserver/releases/tags/${r.tagName}`,
             { encoding: 'utf8' },
         );
         const assetsData = JSON.parse(assetsOutput);
