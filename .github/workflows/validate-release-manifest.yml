@@ -20,7 +20,7 @@ jobs:
         env:
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
-          ALLOWED_AUTHORS="github-actions[bot]"
+          ALLOWED_AUTHORS="github-actions[bot] cfn-manifest-bot[bot]"
           if [[ ! " $ALLOWED_AUTHORS " =~ " $PR_AUTHOR " ]]; then
             echo "::error::Only automated PRs are allowed to modify assets/release-manifest.json. PR author '$PR_AUTHOR' is not allowed."
             exit 1
