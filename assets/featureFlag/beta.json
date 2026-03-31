@@ -7,7 +7,8 @@
     },
     "EnhancedDryRun": {
       "enabled": true,
-      "fleetPercentage": 100,
+      "fleetPercentage": 130,
+      "unknownField": "bad",
       "allowlistedRegions": [
         "us-east-1",
         "us-east-2",
